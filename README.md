@@ -41,22 +41,36 @@ To re-run the tests with a given seed number, use this command line:
 nosetests --randomize --seed=<whatever number you wish to use>
 ```
 
+To only randomize selected TestCases class, use the --class-specific, and the @randomize_tests decorator.
+@randomize_tests supports a predefined seed. If no seed is given, a seed will be randomly generated.
+
+```python
+# A random seed will be generated
+@randomize_tests()
+class MyClass(unittest.TestCase):
+    pass
+
+@randomize_tests(seed=1723930311)
+class MyOtherClass(unittest.TestCase):
+    pass
+```
+
+```shell
+nosetests --randomize --class-specific
+```
+
 ## Limitations
 
 Currently this plugin is only able to randomize the tests within a Class or Module. It does not support running the Classes in a random order. 
 
 For example if you have 3 test classes (TestClass1, TestClass2, TestClass3), they will be called in that order. The tests within each class will be executed in a random order, but the classes them selves will be called in the same order every time.
 
+Moreover, options --class-specific and --seed conflict. In such scenario, Class specific randomization will be ignored, and the given seed will be used.
 ************
 
 ## Important notes
 
  * *License* - This plugin is LGPL Licensed per the original author
 
- * *Original author* - This work is based on the code created by Charles McCreary as posted to https://code.google.com/p/python-nose/issues/detail?id=255
-
- * *Goals of this version* - This project is attempting the following:
-> * The ability to randomize across all tests, not just within the TestCase class
-> * High (as close to 100% as possible) test coverage. Currently 82%.
-
- * *Questions? Comments?* - Please feel free to open an issue on this project's github page: https://github.com/nloadholtes/nose-randomize  Additionally, you can email nick AT ironboundsoftware DOT com if you would like to.
+ * *Original author* - This work is based on the code created by nloadholtes, as posted to https://github.com/nloadholtes/nose-randomize,
+ and by Charles McCreary as posted to https://code.google.com/p/python-nose/issues/detail?id=255

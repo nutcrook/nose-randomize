@@ -1,6 +1,8 @@
 """
 Randomize test order plugin
 
+This code is a fork of the nloadholtes/nose-randomize project (https://github.com/nloadholtes/nose-randomize)
+
 The original source of the code is:
 
 http://code.google.com/p/python-nose/issues/detail?id=255
@@ -18,11 +20,11 @@ from setuptools import setup
 
 setup(
     name='randomize',
-    version='0.10',
-    maintainer='Nick Loadholtes',
-    maintainer_email='nick@ironboundsoftware.com',
-    url='https://github.com/nloadholtes/nose-randomize',
-    download_url='https://github.com/nloadholtes/nose-randomize/archive/master.zip',
+    version='0.11',
+    maintainer='NutCrook',
+    maintainer_email='nutcrook@gmail.com',
+    url='https://github.com/nutcrook/nose-randomize',
+    download_url='https://github.com/nutcrook/nose-randomize/archive/master.zip',
     author='Charles McCreary',
     author_email='charles.mccreary@tiawichiresearch.com',
     description='Randomize the order of the tests within a unittest.TestCase class',
